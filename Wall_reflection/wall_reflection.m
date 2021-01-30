@@ -5,7 +5,7 @@ function [theta_r,y_a,y_b] =wall_reflection(theta)
     %% Setup parameters
     mem = 0.9;
     Gam = mem*4.20;
-    Nx = 400; Ny = Nx; 
+    Nx = 128; Ny = Nx; 
     Lx = 32; Ly = Lx; dt_desired = min(Lx/Nx,Ly/Ny)/8;
     plotoption=inf;
     p = problem_setup_reflection(Nx,Ny,Lx,Ly,Gam,dt_desired);
