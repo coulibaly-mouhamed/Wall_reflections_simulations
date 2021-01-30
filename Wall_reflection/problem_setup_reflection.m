@@ -159,7 +159,7 @@ slope_calculator = 2;
 
 
 %% Use GPU (CPU typicall faster at low (<512x512) resolution, GPU faster at high resolution)
-useGPU =1; 
+useGPU =0; 
 % Send to GPU
 if useGPU ==1
     Kx = gpuArray(single(Kx));
