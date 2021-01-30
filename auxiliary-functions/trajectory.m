@@ -71,14 +71,14 @@ for n=1:p.nimpacts
     end
     
         % Diplay results
-    if mod(n-1,40)==0
-        ui_av = xi - x_data(n,:); vi_av = yi - y_data(n,:);
-        disp(['impact=',num2str(n),'  xi=',num2str(xi),'  yi=',num2str(yi),...
-        '  ui=',num2str(ui_av),'  vi=',num2str(vi_av),...
-        '  |v|=',num2str(sqrt((ui_av).^2+(vi_av).^2)),'  eta_max=',num2str(eta_max),...
-        '  |eta_boundary|=',num2str(max(abs(eta(1,:))))]);
+    %if mod(n-1,100)==0
+     %   ui_av = xi - x_data(n,:); vi_av = yi - y_data(n,:);
+      %  disp(['impact=',num2str(n),'  xi=',num2str(xi),'  yi=',num2str(yi),...
+       % '  ui=',num2str(ui_av),'  vi=',num2str(vi_av),...
+        %'  |v|=',num2str(sqrt((ui_av).^2+(vi_av).^2)),'  eta_max=',num2str(eta_max),...
+        %'  |eta_boundary|=',num2str(max(abs(eta(1,:))))]);
              %disp(['impact=',num2str(n)]);
-    end
+    %end
     
     t = t+p.impact_interval;
 
