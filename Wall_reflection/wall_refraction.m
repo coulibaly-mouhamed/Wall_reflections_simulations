@@ -7,7 +7,7 @@ function[theta_r] =wall_refraction(theta)
     Gam = mem*4.20;
     Nx = 128; Ny = Nx; 
     Lx = 32; Ly = Lx; dt_desired = min(Lx/Nx,Ly/Ny)/8;
-    plotoption=40;
+    plotoption=inf;
     p = problem_setup_refraction(Nx,Ny,Lx,Ly,Gam,dt_desired);
 
     %% Initial position and velocity
