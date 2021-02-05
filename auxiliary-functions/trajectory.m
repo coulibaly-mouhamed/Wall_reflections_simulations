@@ -30,6 +30,11 @@ end
 phi_hat = fft2(phi);               
 eta_hat = fft2(eta);
 ii = 1;
+switch p.makeMovie
+    case 1
+        vidfile = VideoWriter('wall_reflection.mp4','MPEG-4');
+        open(vidfile);
+end
 for n=1:p.nimpacts
     
     eta = real(ifft2(eta_hat));   
@@ -50,8 +55,18 @@ for n=1:p.nimpacts
     end
     
     % Plot
-    if mod(n-1,plotgap)==0
-        plot_solution(eta,xi,yi,t,p);
+    switch p.makeMovie
+        case 1
+            if mod(n-1,plotgap)==0
+                plot_solution(eta,xi,yi,t,p);
+                F = getframe(gcf);
+                title('Reflection');
+                writeVideo(vidfile, F);
+            end
+        case 0
+            if mod(n-1,plotgap)==0
+                plot_solution(eta,xi,yi,t,p);
+            end
     end
 
      % Drop impact
@@ -82,6 +97,9 @@ for n=1:p.nimpacts
     
     t = t+p.impact_interval;
 
+end
+if p.makeMovie==1
+    close(vidfile)
 end
 p.dist =dist;
 if p.useGPU ==1

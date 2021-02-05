@@ -16,13 +16,14 @@ function [theta_r,y_a,y_b] =wall_reflection(theta)
     dist = 2;
     p.xi = 3-dist; p.yi = mod(-dist*tan(theta_rad)+p.Ly/2,p.Ly)-p.Ly/2; 
     p.ui=0.1*cos(theta_rad); p.vi=0.1*sin(theta_rad);
-    p.nimpacts = min(round(2*(dist./cos(theta_rad)./vfreespace)),2400);
-    p.nimpacts = 700;
+    %p.nimpacts = min(round(2*(dist./cos(theta_rad)./vfreespace)),2400);
+    p.nimpacts=300;
 
     %% Bottom profile
     p.h   = p.h0_shallow.*(p.xx>10)+p.h0_deep.*(p.xx<=10);
     p.d   = p.d0_shallow.*(p.xx>10)+p.d0_deep.*(p.xx<=10);
     disp(num2str(p.nimpacts));
+    p.makeMovie=0;
     [x_data,y_data,t_data,eta_data] = trajectory(p,plotoption);
     n = length(x_data);
     u_m =[1,0];
