@@ -1,6 +1,6 @@
 %% set parameters 
 L=301;
-theta_i = linspace(0,90,L);
+theta_i = linspace(0,60,L);
 theta_r=  zeros(1,L);
 y_a=zeros(1,L);
 y_b =zeros(1,L);

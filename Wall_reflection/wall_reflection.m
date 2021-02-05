@@ -7,17 +7,17 @@ function [theta_r,y_a,y_b] =wall_reflection(theta)
     Gam = mem*4.20;
     Nx = 128; Ny = Nx; 
     Lx = 32; Ly = Lx; dt_desired = min(Lx/Nx,Ly/Ny)/8;
-    plotoption=inf;
+    plotoption=40;
     p = problem_setup_reflection(Nx,Ny,Lx,Ly,Gam,dt_desired);
 
     %% Initial position and velocity
     theta_rad = theta*pi/180;
     vfreespace = 0.0555;
-    dist = 2;
-    p.xi = 3-dist; p.yi = mod(-dist*tan(theta_rad)+p.Ly/2,p.Ly)-p.Ly/2; 
+    dist =2;
+    p.xi = 2-dist; p.yi = mod(-dist*tan(theta_rad)+p.Ly/2,p.Ly)-p.Ly/2; 
     p.ui=0.1*cos(theta_rad); p.vi=0.1*sin(theta_rad);
     %p.nimpacts = min(round(2*(dist./cos(theta_rad)./vfreespace)),2400);
-    p.nimpacts=300;
+    p.nimpacts=700;
 
     %% Bottom profile
     p.h   = p.h0_shallow.*(p.xx>10)+p.h0_deep.*(p.xx<=10);
