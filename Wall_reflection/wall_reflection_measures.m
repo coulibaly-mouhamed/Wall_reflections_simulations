@@ -1,5 +1,5 @@
 %% set parameters 
-L=300;
+L=301;
 theta_i = linspace(0,90,L);
 theta_r=  zeros(1,L);
 y_a=zeros(1,L);
